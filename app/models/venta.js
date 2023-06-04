@@ -8,5 +8,8 @@ module.exports = (sequelize, DataTypes) => {
         tableName: 'venta'
     }
     );
+    Venta.associate = (models)=>{
+        Venta.belongsTo(models.Cliente, {foreignKey: 'cliente_id', as: 'cliente' } )
+    };
     return Venta;
 };

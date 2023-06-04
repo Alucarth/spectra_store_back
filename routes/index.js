@@ -31,7 +31,9 @@ module.exports = (app) => {
 
     app.get('/api/cuentas', mainController.listCuentas);
 
-    app.post('/api/ventas', ventaController.create);
+    // app.post('/api/ventas', ventaController.create);
+    app.get('/api/ventas',ventaController.list);
+
 
     app.post('/api/usuarios', usuarioController.create);
 
@@ -41,14 +43,14 @@ module.exports = (app) => {
     app.get('/api/clientes', clienteController.list);
     app.post('/api/clientes', clienteController.create);
     app.get('/api/clientes/:id', clienteController.getClienteById);
-    app.put('/api/clientes', clienteController.update);
+    app.put('/api/clientes/:id', clienteController.update);
     app.delete('/api/clientes/:id', clienteController.delete);
 
     app.post('/api/clientes/venta', clienteController.ventaCliente);
     app.delete('/api/clientes/venta/:id', clienteController.eliminarVenta);
 
     app.get('/api/clientes/venta/productos', clienteController.productosMasVendidos);
-    
+    app.get('/api/venta/cliente/:id',ventaController.listByClient);
 
    
 };

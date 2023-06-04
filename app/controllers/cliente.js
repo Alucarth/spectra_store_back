@@ -46,11 +46,11 @@ module.exports = {
     },
 
     update(req, res) {
-            console.log(req.body.email)
+            console.log(req.params.id)
             
 
             // console.log(Cliente.findOne({ where:{email: req.body.email}}))
-        return Cliente.findOne({ where:{email: req.body.email}})
+        return Cliente.findOne({ where:{id: req.params.id}})
             .then(cliente => {
                 console.log(cliente)
                 if (!cliente) {
